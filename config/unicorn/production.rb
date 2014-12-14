@@ -7,6 +7,7 @@ timeout 30
 listen "/tmp/unicorn.sock", :backlog => 64
 pid "/var/www/ec2-user/capstest/shared/tmp/pids/unicorn.pid"
 
+
 stderr_path "#{@app_path}/shared/log/unicorn.stderr.log"
 stdout_path "#{@app_path}/shared/log/unicorn.stdout.log"
 
