@@ -20,7 +20,7 @@ set :rbenv_roles, :all # default value
 set :linked_dirs, %w{bin log tmp/backup tmp/pids tmp/cache tmp/sockets vendor/bundle}
 set :unicorn_pid, "#{shared_path}/tmp/pids/unicorn.pid"
 
-set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
+#set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
@@ -49,6 +49,7 @@ end
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
+set :default_environment, { 'PATH' => '$HOME/.rbenv/shims:$HOME/.rbenv/bin:$HOME/bin:$PATH' }
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
